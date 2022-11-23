@@ -1,0 +1,82 @@
+:plugin: example
+:type: filter
+
+///////////////////////////////////////////
+START - GENERATED VARIABLES, DO NOT EDIT!
+///////////////////////////////////////////
+:version: %VERSION%
+:release_date: %RELEASE_DATE%
+:changelog_url: %CHANGELOG_URL%
+:include_path: ../../../../logstash/docs/include
+///////////////////////////////////////////
+END - GENERATED VARIABLES, DO NOT EDIT!
+///////////////////////////////////////////
+
+[id="plugins-{type}s-{plugin}"]
+
+== logstash-filter-cuckoo
+
+=== Example filter plugin
+
+[,logstash]
+----
+filter{
+  cuckoo {
+    hostname => 'cuckoo_api.redborder.cluster'
+    port => 8090
+    file_field => '[path]'
+    config_file => 'config.yml'
+  }
+}
+----
+
+=== Description
+
+This is an example of Logstash filter plugin for making calls to cuckoo api.
+
+[id="plugins-{type}s-{plugin}-options"]
+==== Filter Configuration Options
+
+[cols="<,<,<",options="header",]
+|====================================================================================
+|               Setting                                     |   Input type  |Required
+| <<plugins-{type}s-{plugin}-hostname>>                     |String         |Yes
+| <<plugins-{type}s-{plugin}-port>>                         |Number         |No
+| <<plugins-{type}s-{plugin}-file_field>>                   |String         |No
+| <<plugins-{type}s-{plugin}-config_file>>                  |String         |No
+|====================================================================================
+
+[id="plugins-{type}s-{plugin}-hostname"]
+===== `hostname`
+
+  * Value type is `String`.
+  * *Required*.
+
+Hostname or IP where cuckoo_api service is running.
+
+[id="plugins-{type}s-{plugin}-port"]
+===== `port`
+
+* Value type is `Number`.
+* Default value is `8090`
+
+Port where cuckoo_api is listening.
+
+[id="plugins-{type}s-{plugin}-file_field"]
+===== `file_field`
+
+* Value type is `String`.
+* Default value is `["path"]`
+
+Logstash event field (key) where the file to be analyzed is located.
+
+[id="plugins-{type}s-{plugin}-config_file"]
+===== `config_file`
+
+* Value type is `String`.
+* Default value is `"/opt/rb/var/rb-sequence-oozie/conf/config.yml"`
+
+Path where Cuckoo excluded mime types are.
+
+[id="plugins-{type}s-{plugin}-common-options"]
+
