@@ -24,7 +24,7 @@ class LogStash::Filters::Cuckoo < LogStash::Filters::Base
   public
   def register
     # Add instance variables
-    @url = "http://#{@ip}:#{@port.to_s}/tasks/create/file"
+    @url = "http://#{@hostname}:#{@port.to_s}/tasks/create/file"
 
   end # def register
 
