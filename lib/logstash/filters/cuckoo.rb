@@ -35,7 +35,7 @@ class LogStash::Filters::Cuckoo < LogStash::Filters::Base
   def filetype_is_excluded?(file_mime_type)
     begin
       filters = YAML.load_file(@config_file)["cuckoo"]["cuckoo_filters"]
-      !(filters.include? file_mime_type)
+      filters.include? file_mime_type
     rescue Errno::ENOENT => e
       nil
     end
